@@ -10,11 +10,9 @@ var generateBtn = document.querySelector("#generate");
 
 // <!-- WHEN prompted for the length of the password
 // THEN I choose a length of at least 8 characters and no more than 128 characters -->
-prompt("Choose a length of at least 8 characters and no more than 128 characters" )
 
 // <!-- WHEN asked for character types to include in the password
 // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters -->
-prompt("Enter type: lowercase, uppercase, numeric, and/or special characters")
 // WHEN I answer each prompt
 // THEN my input should be validated and at least one character type should be selected
 
@@ -33,26 +31,25 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+// pop up to ask for character length
 var password_length = Number(prompt("Choose a length of at least 8 characters and no more than 128 characters"));
-var type = prompt("Enter type: lowercase, uppercase, numeric, and/or special characters")
+// pop up to ask for type of character
+var type = prompt("Enter type: lowercase, uppercase, numeric, or special characters")
 
 function generatePassword(){
-  var newpassword = "";
- if(newpassword === "lowercase") {
-  newpassword = "qwertyuiopasdfghjklzxcvbnm";
-} else if (newpassword === "uppercase") {
-  newpassword = "QWERTYUIOPASDFGHJKLZXCVBNM";
-} else if (newpassword === "numerical") {
-  newpassword = "1234567890";
-} else if (newpassword === "special") {
-  newpassword = "!@#$%^&*";
-}
+  var newpassword = {
+lowercase: "qwertyuiopasdfghjklzxcvbnm",
+uppercase: "QWERTYUIOPASDFGHJKLZXCVBNM",
+numeric: "1234567890",
+"special characters": "!@#$%^&*()_+=-`~\|][{};':,./?><:",
+};
 
+var newpassword = newpassword[type.toLocaleLowerCase()] || charSets.lowercase;
+var returnvalue = "";
   for (let i = 0; i < password_length; i++) {
-    newpassword+=character_list.charAt(Math.floor(Math.random()*character_list.length))
+    returnvalue+=newpassword.charAt(Math.floor(Math.random()*newpassword.length))
   }
-  return newpassword
+  return returnvalue
 }
 
 // Add event listener to generate button
