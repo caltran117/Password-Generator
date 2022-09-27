@@ -7,11 +7,10 @@ I wanted to learn how to use JavaScript to produce a randomized output based my 
 This project was built for anyone who would want to generate a random password and it solves the problem of having to make a password manually.
 I had learned how to use JavaScript functions use the for code to produce randomness.
 
+please visit the page:
+<a href="https://caltran117.github.io/Password-Generator/">here</a>
+ 
 ## Usage
-
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
 
 ![character length prompt](Assets\images\Screenshot 2022-09-27 005211.png)
 ![character type prompt](Assets\images\Screenshot 2022-09-27 005224.png)
