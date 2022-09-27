@@ -1,29 +1,7 @@
-// Assignment Code
+// links generator button to javascript
 var generateBtn = document.querySelector("#generate");
 
-
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-
-// <!-- WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters -->
-
-// <!-- WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters -->
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
-
-// Write password to the #password input
+// main function "writePassword" is linked to the subsidiary coding and connects to the html
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -36,6 +14,7 @@ var password_length = Number(prompt("Choose a length of at least 8 characters an
 // pop up to ask for type of character
 var type = prompt("Enter type: lowercase, uppercase, numeric, or special characters")
 
+// creates a index of the different character types to link to the for code for random generation
 function generatePassword(){
   var newpassword = {
 lowercase: "qwertyuiopasdfghjklzxcvbnm",
@@ -44,13 +23,16 @@ numeric: "1234567890",
 "special characters": "!@#$%^&*()_+=-`~\|][{};':,./?><:",
 };
 
-var newpassword = newpassword[type.toLocaleLowerCase()] || charSets.lowercase;
+// links to the above type index. lower cases the prompt characters.
+var newpassword = newpassword[type.toLocaleLowerCase()] || newpassword.lowercase;
 var returnvalue = "";
+// generates a random number based on the entered number by user
   for (let i = 0; i < password_length; i++) {
     returnvalue+=newpassword.charAt(Math.floor(Math.random()*newpassword.length))
   }
+  // this creates the random generated code by returning the variable returnvalue
   return returnvalue
 }
 
-// Add event listener to generate button
+// links the button to the generate password function and the html
 generateBtn.addEventListener("click", writePassword);
